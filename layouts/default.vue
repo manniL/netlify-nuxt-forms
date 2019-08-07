@@ -1,8 +1,18 @@
 <template>
   <div>
+    <Form />
     <nuxt />
   </div>
 </template>
+
+<script>
+import Form from '@/components/Form'
+export default {
+  components: {
+    Form
+  }
+}
+</script>
 
 <style>
 html {

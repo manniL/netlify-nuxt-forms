@@ -1,6 +1,39 @@
 <template>
-  <div>
-    <h1>Hi</h1>
+  <div class="container">
+    <div>
+      <h1>{{ teaName }}</h1>
+    </div>
+    <div>
+      <form
+        name="vue-tea"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="vue-tea" />
+        <div class="tea">
+          <h2>Pick a Tea</h2>
+          <label
+            v-for="tea in teaNames"
+            :key="tea"
+            :class="{
+              'tea-label': true,
+              checked: tea === chosenTea
+            }"
+          >
+            <input
+              id="tea"
+              v-model="chosenTea"
+              name="tea"
+              type="radio"
+              :value="tea"
+            />
+            <span>{{ tea }}</span>
+          </label>
+        </div>
+        <button>Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 
